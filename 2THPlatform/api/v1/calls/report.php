@@ -32,15 +32,16 @@
 
             if(strlen($data[0]) == 12) {
                 $con = new PDO('mysql: host=locahost; dbname=company;','root','');
+                $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                 $sql = "SELECT * FROM `reports` WHERE `mac`='" . $data[0] . "'";
                 $sql = $con->prepare($sql);
                 $sql->execute();
 
                 if ($sql->fetch(PDO::FETCH_ASSOC) == true){
-                    echo 'Exist';  
+                    echo 'Exist';
                     try {   
-                        $sql = "UPDATE `reports` SET `lat`=" . $data[1] . ",`lon`=" . $data[2] . ",`date`=" . date("Y-m-d") . " WHERE `mac`='" . $data[0] . "'";
+                        $sql = "UPDATE `reports` SET `lat`=" . $data[1] . ",`lon`=" . $data[2] . ",`date`='" . date("Y-m-d") . "' WHERE `mac`='" . $data[0] . "'";
                         $con->exec($sql);
                         echo "Record updated successfully";
                     } catch(PDOException $e) {
@@ -49,7 +50,8 @@
                 } else {   
                     echo 'Does not exist';
                     try {
-                        $sql = "INSERT INTO `reports`(`mac`, `lat`, `lon`, `date`) VALUES (" . $data[0] . "," . $data[1] . "," . $data[2] . "," . date("Y-m-d") . ")";
+                        $sql = "INSERT INTO `reports`(`mac`, `lat`, `lon`, `date`) VALUES ('" . $data[0] . "'," . $data[1] . "," . $data[2] . ",'" . date("Y-m-d") . "')";
+
                         $con->exec($sql);
                         echo "New report created successfully";
                     } catch(PDOException $e) {
