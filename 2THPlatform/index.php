@@ -61,7 +61,6 @@
 					$url = 'http://localhost/2THPlatform/api/v1/report/get';
 					$reports = json_decode(file_get_contents($url), true);
 					foreach($reports['data'] as $index => $report){
-						//echo $reports['data'][$index]['mac'];
 						$html .= 
 						"
 						<tr>
