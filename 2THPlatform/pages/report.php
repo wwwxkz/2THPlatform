@@ -1,4 +1,8 @@
 <?php
+    //echo $_POST["test"];
+    $id = explode("_", $_POST["test"]);
+    $id = $id[1];
+    echo $id;
     //Ler url e pegar mac
 
     //if (isset($_REQUEST)) {
@@ -6,29 +10,29 @@
     //}
     //$url = explode('/', $request['url']);
 
-    $con = new PDO('mysql: host=localhost; dbname=company;','root','');
+    // $con = new PDO('mysql: host=localhost; dbname=company;','root','');
 
-    //$sql = "SELECT * FROM `reports` WHERE `mac`='" . $data[0] . "'";
-    $sql = "SELECT * FROM `reports` WHERE `mac`='0088144D4CFB'";
+    // //$sql = "SELECT * FROM `reports` WHERE `mac`='" . $data[0] . "'";
+    // $sql = "SELECT * FROM `reports` WHERE `mac`='0088144D4CFB'";
 
-    $sql = $con->prepare($sql);
-    $sql->execute();
+    // $sql = $con->prepare($sql);
+    // $sql->execute();
 
-    $results = array();
+    // $results = array();
 
-    while($row = $sql->fetch(PDO::FETCH_ASSOC)) {
-        $results[] = $row;
-    }
+    // while($row = $sql->fetch(PDO::FETCH_ASSOC)) {
+    //     $results[] = $row;
+    // }
 
-    if (!$results) {
-        throw new Exception("None report in reports");
-    }
+    // if (!$results) {
+    //     throw new Exception("None report in reports");
+    // }
 
     $html = "
     <p class=\"text-left\">Editando Report: 55:44:33:22:11</p>
 
-    <table class=\"table table-striped table-dark\">
-    <thead>
+    <table class=\"table table-bordered table-sm\">
+    <thead class=\"thead-dark\">
         <tr>
         <th scope=\"col\">Atual</th>
         <th scope=\"col\">Novo</th>
@@ -36,15 +40,15 @@
     </thead>
     <tbody>
         <tr>
-            <th scope=\"row\">" . $results[0]['name'] . "</th>
+            <th scope=\"row\">" . $reports['data'][$id]['name'] . "</th>
             <td><div class=\"input-group input-group-sm\"><input type=\"text\" class=\"form-control\" aria-label=\"Sizing example input\" aria-describedby=\"inputGroup-sizing-sm\"></div></td>
         </tr>
         <tr>
-            <th scope=\"row\">" . $results[0]['tag'] . "</th>
+            <th scope=\"row\">" . $reports['data'][$id]['tag'] . "</th>
             <td><div class=\"input-group input-group-sm\"><input type=\"text\" class=\"form-control\" aria-label=\"Sizing example input\" aria-describedby=\"inputGroup-sizing-sm\"></div></td>
         </tr>
         <tr>
-            <th scope=\"row\">" . $results[0]['groups'] . "</th>
+            <th scope=\"row\">" . $reports['data'][$id]['groups'] . "</th>
             <td><div class=\"input-group input-group-sm\"><input type=\"text\" class=\"form-control\" aria-label=\"Sizing example input\" aria-describedby=\"inputGroup-sizing-sm\"></div></td>
         </tr>
         <tr>

@@ -40,8 +40,8 @@
 				</li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 			</form>
 		</div>
 	</nav>
@@ -49,13 +49,21 @@
     <div class="container">
         <?php
             function changePage($page) {
+				if (strpos($page, 'Edit') !== false) {
+					$page = 'report';
+				}
                 $page = 'pages/'. $page . '.php';
                 include $page;
             }
 
             if(array_key_exists('test',$_POST)){
-                changePage($_POST["test"]);
-            }
+				changePage($_POST["test"]);
+				
+				//if ($_POST["id"] != ""){
+					// if the page cant get subvars
+					//changePage($page, $mac)
+				//}
+			}
         ?>
     </div>
 
