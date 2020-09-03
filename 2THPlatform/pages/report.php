@@ -6,7 +6,7 @@
     //}
     //$url = explode('/', $request['url']);
 
-    $con = new PDO('mysql: host=locahost; dbname=company;','root','');
+    $con = new PDO('mysql: host=localhost; dbname=company;','root','');
 
     //$sql = "SELECT * FROM `reports` WHERE `mac`='" . $data[0] . "'";
     $sql = "SELECT * FROM `reports` WHERE `mac`='0088144D4CFB'";
@@ -25,7 +25,6 @@
     }
 
     $html = "
-<div class=\"container\">
     <p class=\"text-left\">Editando Report: 55:44:33:22:11</p>
 
     <table class=\"table table-striped table-dark\">
@@ -54,7 +53,6 @@
         </tr>
     </tbody>
     </table>
-</div>
     ";
 
     echo $html;
