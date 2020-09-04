@@ -9,18 +9,17 @@ http://localhost/2THPlatform/api/v1/report/
 methods:
 http://localhost/2THPlatform/api/v1/report/send/
 http://localhost/2THPlatform/api/v1/report/get/
+http://localhost/2THPlatform/api/v1/report/update/
 
 # sending data to API 
 
-MAC:0088144D4CFB
+MAC:1116144D4DFB
 _
-LAT:-74.0059731
+LAT:-21.0059731
 _
-LON:40.77222188
+LON:26.77222188
 
-0088144D4CFB_-74.0059731_40.77222188
-
-http://localhost/2THPlatform/api/v1/report/send/0088144D4CFB_-74.0059731_40.77222188
+http://localhost/2THPlatform/api/v1/report/send/?mac=1116144D4DFB&lat=-21.0059731&lon=26.77222188
 
 # database
 
