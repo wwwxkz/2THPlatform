@@ -62,14 +62,12 @@
         }
         public function update()
 		{
-            $data = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-            $id = $_GET['id'];
-            print_r($data);
+            $data = $_GET;
             
             include_once '../../scripts/conn.php';
 
             try {
-                $sql = "UPDATE `reports` SET `name`=\"" . $data['name'] . "\",`tag`=\"" . $data['tag'] . "\",`groups`=\"" . $data['groups'] . "\" WHERE id = $id";   
+                $sql = "UPDATE `reports` SET `name`=\"" . $data['name'] . "\",`tag`=\"" . $data['tag'] . "\",`groups`=\"" . $data['groups'] . "\" WHERE id =" . $data['id'];   
                 $conn->exec($sql);
             } catch(PDOException $e) {
                 echo $sql . "<br>" . $e->getMessage();

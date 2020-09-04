@@ -1,8 +1,13 @@
 <?php
     include_once 'scripts/conn.php';
 
-    $id = explode("_", $_POST["test"]);
-    $id = $id[1]+1;
+    if(array_key_exists('save', $_POST)){
+        $id = explode("_", $_POST["save"]);
+        $id = $id[0];
+    } else {
+        $id = explode("_", $_POST["paginator"]);
+        $id = $id[1]+1;
+    }
 
     $sql = "SELECT * FROM `reports` WHERE `id`=$id";
 
@@ -54,7 +59,7 @@
                 </tr>
             </thead>
             <tbody>
-                <form method=\"post\" action=\"http://localhost/2THPlatform/api/v1/report/update/?id=$id\">
+                <form method=\"post\">
                     <tr>
                         <th scope=\"row\">Name</th>
                         <td style=\"margin: 0; padding: 0;\"><div class=\"input-group input-group-sm\"><input style=\"border-radius:0; box-shadow: 0; border: 0;\" type=\"text\" name=\"name\" value=\"" . $reports[0]['name'] . "\" class=\"form-control\" aria-label=\"Sizing example input\" aria-describedby=\"inputGroup-sizing-sm\"></div></td>
@@ -69,12 +74,13 @@
                     </tr>
                     <tr>
                         <td style=\"margin: 0; padding: 0;\" scope=\"row\"><button type=\"button\" class=\"btn-block\">Cancelar</button></td>
-                        <td style=\"margin: 0; padding: 0;\"><button type=\"submit\" class=\"btn-block\">Salvar</button></td>
+                        <td style=\"margin: 0; padding: 0;\"><button name=\"save\" value=\"" . $id . "\" type=\"submit\" class=\"btn-block\">Salvar</button></td>
                     </tr>
                 </form>
             </tbody>
         </table>
     </div>
     ";
+    
     echo $html;
 ?>

@@ -27,7 +27,7 @@
 							<td>" . $report['mac'] . "</td>
 							<td style=\"margin: 0; padding: 0;\">
 								<form method=\"post\">
-									<input class=\"btn-block\" type=\"submit\" name=\"test\" value=\"Edit_" . $index . "\"/>
+									<input class=\"btn-block\" type=\"submit\" name=\"paginator\" value=\"Edit_" . $index . "\"/>
 								</form>
 							</td>
 						</tr>

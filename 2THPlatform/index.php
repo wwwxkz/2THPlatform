@@ -20,22 +20,22 @@
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active">
                     <form method="post">
-                        <input class="nav-link" type="submit" name="test" value="Dashboard"/>
+                        <input class="nav-link" type="submit" name="paginator" value="Dashboard"/>
                     </form>
 				</li>
 				<li class="nav-item">
                     <form method="post">
-                        <input class="nav-link" type="submit" name="test" value="Reports"/>
+                        <input class="nav-link" type="submit" name="paginator" value="Reports"/>
                     </form>
 				</li>
 				<li class="nav-item">
                     <form method="post">
-                        <input class="nav-link" type="submit" name="test" value="Map"/>
+                        <input class="nav-link" type="submit" name="paginator" value="Map"/>
                     </form>
 				</li>
 				<li class="nav-item">
                     <form method="post">
-                        <input class="nav-link" type="submit" name="test" value="Settings"/>
+                        <input class="nav-link" type="submit" name="paginator" value="Settings"/>
                     </form>
 				</li>
 			</ul>
@@ -48,17 +48,7 @@
 
     <div class="container">
         <?php
-            function changePage($page) {
-				if (strpos($page, 'Edit') !== false) {
-					$page = 'report';
-				}
-                $page = 'pages/'. $page . '.php';
-                include $page;
-            }
-
-            if(array_key_exists('test',$_POST)){
-				changePage($_POST["test"]);
-			}
+			include_once 'scripts/form.php'
         ?>
     </div>
 
