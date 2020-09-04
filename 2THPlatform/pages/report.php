@@ -1,36 +1,25 @@
 <?php
-    //echo $_POST["test"];
+    include_once 'scripts/conn.php';
+
     $id = explode("_", $_POST["test"]);
-    $id = $id[1];
-    echo $id;
-    //Ler url e pegar mac
+    $id = $id[1]+1;
 
-    //if (isset($_REQUEST)) {
-    //    echo $_REQUEST;
-    //}
-    //$url = explode('/', $request['url']);
+    $sql = "SELECT * FROM `reports` WHERE `id`=$id";
 
-    // $con = new PDO('mysql: host=localhost; dbname=company;','root','');
+    $sql = $conn->prepare($sql);
+    $sql->execute();
 
-    // //$sql = "SELECT * FROM `reports` WHERE `mac`='" . $data[0] . "'";
-    // $sql = "SELECT * FROM `reports` WHERE `mac`='0088144D4CFB'";
+    $reports = array();
 
-    // $sql = $con->prepare($sql);
-    // $sql->execute();
+    while($row = $sql->fetch(PDO::FETCH_ASSOC)) {
+        $reports[] = $row;
+    }
 
-    // $results = array();
-
-    // while($row = $sql->fetch(PDO::FETCH_ASSOC)) {
-    //     $results[] = $row;
-    // }
-
-    // if (!$results) {
-    //     throw new Exception("None report in reports");
-    // }
+    if (!$reports) {
+        throw new Exception("None report in reports");
+    }
 
     $html = "
-    <p class=\"text-left\">Editando Report: 55:44:33:22:11</p>
-
     <table class=\"table table-bordered table-sm\">
     <thead class=\"thead-dark\">
         <tr>
@@ -39,25 +28,26 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope=\"row\">" . $reports['data'][$id]['name'] . "</th>
-            <td><div class=\"input-group input-group-sm\"><input type=\"text\" class=\"form-control\" aria-label=\"Sizing example input\" aria-describedby=\"inputGroup-sizing-sm\"></div></td>
-        </tr>
-        <tr>
-            <th scope=\"row\">" . $reports['data'][$id]['tag'] . "</th>
-            <td><div class=\"input-group input-group-sm\"><input type=\"text\" class=\"form-control\" aria-label=\"Sizing example input\" aria-describedby=\"inputGroup-sizing-sm\"></div></td>
-        </tr>
-        <tr>
-            <th scope=\"row\">" . $reports['data'][$id]['groups'] . "</th>
-            <td><div class=\"input-group input-group-sm\"><input type=\"text\" class=\"form-control\" aria-label=\"Sizing example input\" aria-describedby=\"inputGroup-sizing-sm\"></div></td>
-        </tr>
-        <tr>
-            <th scope=\"row\"><button type=\"button\" class=\"btn btn-secondary btn-lg btn-block\">Cancelar</button></th>
-            <td><button type=\"button\" class=\"btn btn-primary btn-lg btn-block\">Salvar</button></td>
-        </tr>
+        <form method=\"post\" action=\"http://localhost/2THPlatform/api/v1/report/update/?id=$id\">
+            <tr>
+                <th scope=\"row\">Name</th>
+                <td><div class=\"input-group input-group-sm\"><input type=\"text\" name=\"name\" value=\"" . $reports[0]['name'] . "\" class=\"form-control\" aria-label=\"Sizing example input\" aria-describedby=\"inputGroup-sizing-sm\"></div></td>
+            </tr>
+            <tr>
+                <th scope=\"row\">Tag</th>
+                <td><div class=\"input-group input-group-sm\"><input type=\"text\" name=\"tag\" value=\"" . $reports[0]['tag'] ."\" class=\"form-control\" aria-label=\"Sizing example input\" aria-describedby=\"inputGroup-sizing-sm\"></div></td>
+            </tr>
+            <tr>
+                <th scope=\"row\">Groups</th>
+                <td><div class=\"input-group input-group-sm\"><input type=\"text\" name=\"groups\" value=\"" . $reports[0]['groups'] . "\" class=\"form-control\" aria-label=\"Sizing example input\" aria-describedby=\"inputGroup-sizing-sm\"></div></td>
+            </tr>
+            <tr>
+                <th scope=\"row\"><button type=\"button\" class=\"btn btn-secondary btn-lg btn-block\">Cancelar</button></th>
+                <td><button type=\"submit\" class=\"btn btn-primary btn-lg btn-block\">Salvar</button></td>
+            </tr>
+        </form>
     </tbody>
     </table>
     ";
-
     echo $html;
 ?>

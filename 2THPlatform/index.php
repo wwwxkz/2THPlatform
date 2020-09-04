@@ -58,11 +58,6 @@
 
             if(array_key_exists('test',$_POST)){
 				changePage($_POST["test"]);
-				
-				//if ($_POST["id"] != ""){
-					// if the page cant get subvars
-					//changePage($page, $mac)
-				//}
 			}
         ?>
     </div>
