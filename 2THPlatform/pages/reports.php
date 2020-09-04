@@ -1,4 +1,4 @@
-<table class="table table-bordered table-sm">
+<table class="table table-bordered table-sm table-hover">
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">ID</th>
@@ -27,7 +27,7 @@
 							<td>" . $report['mac'] . "</td>
 							<td style=\"margin: 0; padding: 0;\">
 								<form method=\"post\">
-									<input style=\"width: 100%;\" type=\"submit\" name=\"test\" value=\"Edit_" . $index . "\"/>
+									<input class=\"btn-block\" type=\"submit\" name=\"test\" value=\"Edit_" . $index . "\"/>
 								</form>
 							</td>
 						</tr>
