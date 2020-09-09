@@ -16,7 +16,7 @@ tag - varchar(32)
 groups - varchar(128)
 
 # .env
-
+```
 $key_map = 'google_maps_api_key';
 $companies = [
 	"Company_1" => [
@@ -35,3 +35,4 @@ $companies = [
 		"db_password" => "TestDatabasePass",
 		]
 ];
+```
