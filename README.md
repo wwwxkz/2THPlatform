@@ -1,33 +1,6 @@
 # 2THPlatform
-
 base url:
 http://localhost/2THPlatform
-
-classes:
-http://localhost/2THPlatform/api/v1/report/
-
-methods:
-http://localhost/2THPlatform/api/v1/report/send/
-http://localhost/2THPlatform/api/v1/report/get/
-http://localhost/2THPlatform/api/v1/report/update/
-
-# Sending data to API 
-
-* Location
-MAC:1116144D4DFB
-_
-LAT:-21.0059731
-_
-LON:26.77222188
-
-http://localhost/2THPlatform/api/v1/report/send/?mac=1116144D4DFB&lat=-21.0059731&lon=26.77222188
-
-* Login
-/login/?company=2TH&password=TestPassword&user=connector
-/login/?company=CompanyNew&password=AnotherPass&user=admin
-
-* Update
-
 
 # Database
 
@@ -41,3 +14,24 @@ date - date
 name - varchar(64)
 tag - varchar(32)
 groups - varchar(128)
+
+# .env
+
+$key_map = 'google_maps_api_key';
+$companies = [
+	"Company_1" => [
+		"api_connector_password" => "apiPassword",
+		"api_admin_password" => "platPassword",
+		"db_password" => "TestDb",
+		],
+	"Company_2" => [
+		"api_connector_password" => "password2",
+		"api_admin_password" => "tpaswwordCompan",
+		"db_password" => "DATAcompany2",
+		],
+	"TestCompany" => [
+		"api_connector_password" => "Api.password2",
+		"api_admin_password" => "TPword2",
+		"db_password" => "TestDatabasePass",
+		]
+];
