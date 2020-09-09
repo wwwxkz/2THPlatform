@@ -1,3 +1,4 @@
+<?php include_once '../index/index.php' ?>
 
     <style>
       #map {
@@ -24,14 +25,12 @@
           zoom: 7
         });
         var infoWindow = new google.maps.InfoWindow;
-          downloadUrl('pages/test.php', function(data) {
+          downloadUrl('data.php', function(data) {
             var xml = data.responseXML;
             var markers = xml.documentElement.getElementsByTagName('marker');
             Array.prototype.forEach.call(markers, function(markerElem) {
               var id = markerElem.getAttribute('id');
               var name = markerElem.getAttribute('name');
-              //var address = markerElem.getAttribute('address');
-              //var type = markerElem.getAttribute('type');
               var point = new google.maps.LatLng(
                   parseFloat(markerElem.getAttribute('lat')),
                   parseFloat(markerElem.getAttribute('lng')));
@@ -43,13 +42,10 @@
               infowincontent.appendChild(document.createElement('br'));
 
               var text = document.createElement('text');
-              //text.textContent = address
               infowincontent.appendChild(text);
-              //var icon = customLabel[type] || {};
               var marker = new google.maps.Marker({
                 map: map,
                 position: point,
-                //label: icon.label
               });
               marker.addListener('click', function() {
                 infoWindow.setContent(infowincontent);
@@ -80,7 +76,7 @@
       function doNothing() {}
     </script>
     <?php
-      require_once '../../secure/env.php';
+      require_once '../../../../secure/env.php';
       echo "<script defer
       src='https://maps.googleapis.com/maps/api/js?key=" . $key_map . "&callback=initMap'>
       </script>";
