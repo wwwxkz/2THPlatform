@@ -1,4 +1,7 @@
 <?php include_once '../index/index.php' ?>
+
+<link rel="stylesheet" href="../reports/report.css">
+
 <?php
     $data = $_GET;
 
@@ -6,57 +9,57 @@
     $reports = json_decode(file_get_contents($url), true);
 
         $html = "
-    <div class=\"row justify-content-around\">
-        <table class=\"col-md-3 table table-bordered table-sm table-hover\">
-            <thead class=\"thead-dark\">
+    <div>
+        <table>
+            <thead>
                 <tr>
-                    <th scope=\"col\" colspan=\"2\">Data</th>
+                    <th colspan=\"2\">Data</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <th scope=\"row\">ID</th>
+                    <th>ID</th>
                     <th>" . $data['id'] . "</th>
                 </tr>
                 <tr>
-                    <th scope=\"row\">Mac</th>
+                    <th>Mac</th>
                     <th>" . $reports['data'][$data['id']]['mac'] . "</th>
                 </tr>
                 <tr>
-                    <th scope=\"row\">Latitude</th>
+                    <th>Latitude</th>
                     <th>" . $reports['data'][$data['id']]['lat'] . "</th>
                 </tr>
                 <tr>
-                    <th scope=\"row\">Longititude</th>
+                    <th>Longititude</th>
                     <th>" . $reports['data'][$data['id']]['lon'] . "</th>
                 </tr>
             </tbody>
         </table>
-        <table class=\"col-md-5 table table-bordered table-sm\">
-            <thead class=\"thead-dark\">
+        <table>
+            <thead>
                 <tr>
-                <th scope=\"col\">Current</th>
-                <th scope=\"col\">New</th>
+                <th>Current</th>
+                <th>New</th>
                 </tr>
             </thead>
             <tbody>
                 <form method=\"post\">
                     <tr>
-                        <th scope=\"row\">Name</th>
-                        <td style=\"margin: 0; padding: 0;\"><div class=\"input-group input-group-sm\"><input style=\"border-radius:0; box-shadow: 0; border: 0;\" type=\"text\" name=\"name\" value=\"" . $reports['data'][$data['id']]['name'] . "\" class=\"form-control\" aria-label=\"Sizing example input\" aria-describedby=\"inputGroup-sizing-sm\"></div></td>
+                        <th>Name</th>
+                        <td style=\"margin: 0; padding: 0;\"><div><input style=\"border-radius:0; box-shadow: 0; border: 0;\" type=\"text\" name=\"name\" value=\"" . $reports['data'][$data['id']]['name'] . "\"></div></td>
                     </tr>
                     <tr>
-                        <th scope=\"row\">Tag</th>
-                        <td style=\"margin: 0; padding: 0;\"><div class=\"input-group input-group-sm\"><input style=\"border-radius:0; box-shadow: 0; border: 0;\" type=\"text\" name=\"tag\" value=\"" . $reports['data'][$data['id']]['tag'] ."\" class=\"form-control\" aria-label=\"Sizing example input\" aria-describedby=\"inputGroup-sizing-sm\"></div></td>
+                        <th>Tag</th>
+                        <td style=\"margin: 0; padding: 0;\"><div><input style=\"border-radius:0; box-shadow: 0; border: 0;\" type=\"text\" name=\"tag\" value=\"" . $reports['data'][$data['id']]['tag'] ."\"></div></td>
                     </tr>
                     <tr>
-                        <th scope=\"row\">Groups</th>
-                        <td style=\"margin: 0; padding: 0;\"><div class=\"input-group input-group-sm\"><input style=\"border-radius:0; box-shadow: 0; border: 0;\" type=\"text\" name=\"groups\" value=\"" . $reports['data'][$data['id']]['groups'] . "\" class=\"form-control\" aria-label=\"Sizing example input\" aria-describedby=\"inputGroup-sizing-sm\"></div></td>
+                        <th>Groups</th>
+                        <td style=\"margin: 0; padding: 0;\"><div><input style=\"border-radius:0; box-shadow: 0; border: 0;\" type=\"text\" name=\"groups\" value=\"" . $reports['data'][$data['id']]['groups'] . "\"></div></td>
                     </tr>
                     <tr>
                         <form method=\"post\">
-                            <td style=\"margin: 0; padding: 0;\" scope=\"row\"><input name=\"cancel\" value=\"Cancelar\" type=\"submit\" class=\"btn-block\"/></td>
-                            <td style=\"margin: 0; padding: 0;\"><input name=\"save\" value=\"Salvar\" type=\"submit\" class=\"btn-block\"/></td>
+                            <td style=\"margin: 0; padding: 0;\"><input name=\"cancel\" value=\"Cancelar\" type=\"submit\"/></td>
+                            <td style=\"margin: 0; padding: 0;\"><input name=\"save\" value=\"Salvar\" type=\"submit\"/></td>
                         </form>
                     </tr>
                 </form>
