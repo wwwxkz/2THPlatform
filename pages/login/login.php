@@ -15,9 +15,9 @@
 		$url = "http://localhost/2THPlatform/api/v1/report/login/?company=" . $_POST['company'] . "&password=" . $_POST['password'] . "&user=" . $_POST['user'];
 		$return = json_decode(file_get_contents($url), true);
 		if($return['data'] == 'admin' or $return['data'] == 'connector'){
-			setcookie('company', $_POST['company']);
-			setcookie('password', $_POST['password']);
-			setcookie('user', $_POST['user']);
+			setcookie('company', $_POST['company'], time()+3600, '/');
+			setcookie('password', $_POST['password'], time()+3600, '/');
+			setcookie('user', $_POST['user'], time()+3600, '/');
 			redirect("../index/index");
 		} else {
 			echo $return['data'];

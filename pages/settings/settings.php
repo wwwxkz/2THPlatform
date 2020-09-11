@@ -16,14 +16,22 @@
 <?php
 	if(array_key_exists('save' ,$_POST)){
 		$settings = json_decode(file_get_contents('../../../../secure/companies.txt'), true);
-		if(isset($_POST['password'])){
+		if(!$_POST['password'] == "" and !$_POST['password'] == null){
 			$settings['companies'][$_COOKIE['company']]['api_admin_password'] = $_POST['password'];
 		}
 		$settings['companies'][$_COOKIE['company']]['theme'] = $_POST['theme'];
 		file_put_contents('../../../../secure/companies.txt', json_encode($settings));
-		unset($_COOKIE['company']); 
-		unset($_COOKIE['password']); 
-		unset($_COOKIE['user']);
+
+		$_SERVER['HTTP_COOKIE'];
+		if (isset($_SERVER['HTTP_COOKIE'])) {
+		    $cookies = explode(';', $_SERVER['HTTP_COOKIE']);
+		    foreach($cookies as $cookie) {
+		        $parts = explode('=', $cookie);
+		        $name = trim($parts[0]);
+		        setcookie($name, '', time()-3600, '/');
+		    }
+		}
+
 		redirect("../login/login");
 	}
 ?>
