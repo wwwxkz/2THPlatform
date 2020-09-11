@@ -1,0 +1,19 @@
+body {
+	background-color: #292929;
+}
+
+.container {
+	display: flex;
+	align-content: center;
+	padding: 10px;
+	justify-content: center;
+}
+
+.container > form > input {
+	color: #eeeeee;
+	background-color: #333;
+	border-color: #eeeeee;
+	border-width: 1px;
+/*	width: 100%;*/
+}
+

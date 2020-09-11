@@ -1,9 +1,12 @@
 <?php include_once '../index/index.php' ?>
 
-<form method="post">
-	<input type="text" name="password" placeholder="New password">
-	<input type="submit" name="save" value="password"/>
-</form>
+<link rel="stylesheet" href="../settings/settings.css">
+<div class="container">
+	<form method="post">
+		<input type="text" name="password" placeholder="New password">
+		<input type="submit" name="save" value="password"/>
+	</form>
+</div>
 
 <?php
 	if(array_key_exists('save' ,$_POST)){

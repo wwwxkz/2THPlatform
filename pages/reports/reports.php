@@ -42,7 +42,7 @@
 
 				if(array_key_exists('edit' ,$_POST)){
 					$id = explode(" ", $_POST['edit']);
-					echo "<script type=\"text/javascript\">location.href = 'report.php/?id=" . $id[1] . "';</script>";
+					echo "<script type=\"text/javascript\">location.href = 'report.php?id=" . $id[1] . "';</script>";
 				}
 			?>
 		</tbody>

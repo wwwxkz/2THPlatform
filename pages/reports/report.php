@@ -1,6 +1,6 @@
 <?php include_once '../index/index.php' ?>
 
-<link rel="stylesheet" href="../reports/report.css">
+<link rel="stylesheet" href="report.css">
 
 <?php
     $data = $_GET;
@@ -8,58 +8,58 @@
     $url = "http://localhost/2THPlatform/api/v1/report/get/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'];
     $reports = json_decode(file_get_contents($url), true);
 
-        $html = "
-    <div>
+    $html = "
+    <div class=\"container\">
         <table>
             <thead>
                 <tr>
-                    <th colspan=\"2\">Data</th>
+                    <td colspan=\"2\">Data</td>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <th>ID</th>
-                    <th>" . $data['id'] . "</th>
+                    <td>ID</td>
+                    <td>" . $data['id'] . "</td>
                 </tr>
                 <tr>
-                    <th>Mac</th>
-                    <th>" . $reports['data'][$data['id']]['mac'] . "</th>
+                    <td>Mac</td>
+                    <td>" . $reports['data'][$data['id']]['mac'] . "</td>
                 </tr>
                 <tr>
-                    <th>Latitude</th>
-                    <th>" . $reports['data'][$data['id']]['lat'] . "</th>
+                    <td>Latitude</td>
+                    <td>" . $reports['data'][$data['id']]['lat'] . "</td>
                 </tr>
                 <tr>
-                    <th>Longititude</th>
-                    <th>" . $reports['data'][$data['id']]['lon'] . "</th>
+                    <td>Longititude</td>
+                    <td>" . $reports['data'][$data['id']]['lon'] . "</td>
                 </tr>
             </tbody>
         </table>
         <table>
             <thead>
                 <tr>
-                <th>Current</th>
-                <th>New</th>
+                <td>Current</td>
+                <td>New</td>
                 </tr>
             </thead>
             <tbody>
                 <form method=\"post\">
                     <tr>
-                        <th>Name</th>
-                        <td style=\"margin: 0; padding: 0;\"><div><input style=\"border-radius:0; box-shadow: 0; border: 0;\" type=\"text\" name=\"name\" value=\"" . $reports['data'][$data['id']]['name'] . "\"></div></td>
+                        <td>Name</td>
+                        <td><div><input class=\"input-text\" type=\"text\" name=\"name\" value=\"" . $reports['data'][$data['id']]['name'] . "\"></div></td>
                     </tr>
                     <tr>
-                        <th>Tag</th>
-                        <td style=\"margin: 0; padding: 0;\"><div><input style=\"border-radius:0; box-shadow: 0; border: 0;\" type=\"text\" name=\"tag\" value=\"" . $reports['data'][$data['id']]['tag'] ."\"></div></td>
+                        <td>Tag</td>
+                        <td><div><input class=\"input-text\" type=\"text\" name=\"tag\" value=\"" . $reports['data'][$data['id']]['tag'] ."\"></div></td>
                     </tr>
                     <tr>
-                        <th>Groups</th>
-                        <td style=\"margin: 0; padding: 0;\"><div><input style=\"border-radius:0; box-shadow: 0; border: 0;\" type=\"text\" name=\"groups\" value=\"" . $reports['data'][$data['id']]['groups'] . "\"></div></td>
+                        <td>Groups</td>
+                        <td><div><input class=\"input-text\" type=\"text\" name=\"groups\" value=\"" . $reports['data'][$data['id']]['groups'] . "\"></div></td>
                     </tr>
                     <tr>
                         <form method=\"post\">
-                            <td style=\"margin: 0; padding: 0;\"><input name=\"cancel\" value=\"Cancelar\" type=\"submit\"/></td>
-                            <td style=\"margin: 0; padding: 0;\"><input name=\"save\" value=\"Salvar\" type=\"submit\"/></td>
+                            <td><input class=\"button\" name=\"cancel\" value=\"Cancelar\" type=\"submit\"/></td>
+                            <td><input class=\"button\" name=\"save\" value=\"Salvar\" type=\"submit\"/></td>
                         </form>
                     </tr>
                 </form>
@@ -83,11 +83,10 @@
         $result = curl_exec($ch);
         curl_close($ch);
 
-        echo "<script>alert('Updated')</script>";
-
+        redirect("reports");
     }
     elseif(array_key_exists('cancel' ,$_POST)){
-        echo "<script type=\"text/javascript\">location.href = '../reports.php';</script>";
+        redirect("reports");
     }
 
 ?>
