@@ -1,5 +1,5 @@
 body {
-	background-color: #292929;
+	background-color: var(--background-color);
 }
 
 .container {
@@ -10,7 +10,7 @@ body {
 }
 
 table {
-	border-color: #eeeeee;
+	border-color: var(--secondary-color);
 	border-style: outset;
 	border-width: 1px;
 	flex: 1;
@@ -18,8 +18,8 @@ table {
 
 thead {
 	text-align: center;
-	color: #eeeeee;
-	background-color: #333;
+	color: var(--secondary-color);
+	background-color: var(--primary-color);
 } 
 
 thead > tr {
@@ -30,19 +30,19 @@ thead > td {
 
 tbody > tr > td {
 	border-right-style: outset;
-	border-right-color: #eeeeee;
+	border-right-color: var(--secondary-color);
 	border-right-width: 1px;
 }
 
 tbody > tr > td:first-child {text-align: center;}
 tbody > tr > td{
-	color: #eeeeee;
+	color: var(--secondary-color);
 }
 
 tbody > tr > td > form > input {
-	color: #eeeeee;
-	background-color: #333;
-	border-color: #eeeeee;
+	color: var(--secondary-color);
+	background-color: var(--primary-color);
+	border-color: var(--secondary-color);
 	border-width: 1px;
 	width: 100%;
 }

@@ -1,0 +1,35 @@
+body {
+/*	color: var(--secondary-color);
+	background-color: var(--background-color);*/
+}
+
+.container {
+	height: 90%;
+	display: flex;
+	padding: 10px;
+	align-content: center;
+	justify-content: space-around;
+}
+
+form {
+	height: 20%;
+	display: flex;
+	flex-direction: column;
+	align-items: space-around;
+	justify-content: space-around;
+}
+
+.button {
+/*	color: var(--secondary-color);
+	background-color: var(--primary-color);
+	border-color: var(--secondary-color);*/
+	border-width: 1px;
+	width: 100%;
+}
+
+.input-text {
+/*	color: var(--secondary-color);
+	background-color: var(--primary-color);
+	border-color: var(--secondary-color);*/
+	border-width: 1px;
+}

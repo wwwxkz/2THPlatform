@@ -1,9 +1,13 @@
-<form method="post">
-	<input name="company" placeholder="Company" type="text"/>
-	<input name="password" placeholder="Password" type="text"/>
-	<input name="user" placeholder="User" type="text"/>
-	<input name="signin" value="Sign In" type="submit"/>
-</form>
+<link rel="stylesheet" href="../login/login.css">
+
+<div class="container">
+	<form method="post">
+		<input class="input-text" name="company" placeholder="Company" type="text"/>
+		<input class="input-text" name="password" placeholder="Password" type="text"/>
+		<input class="input-text" name="user" placeholder="User" type="text"/>
+		<input class="button" name="signin" value="Sign In" type="submit"/>
+	</form>
+</div>
 
 <?php
 	include_once '../../scripts/redirect.php';

@@ -1,6 +1,6 @@
 body {
-	color: #eeeeee;
-	background-color: #292929;
+	color: var(--secondary-color);
+	background-color: var(--background-color);
 }
 
 .container {
@@ -11,7 +11,7 @@ body {
 }
 
 table {
-	border-color: #eeeeee;
+	border-color: var(--secondary-color);
 	border-style: outset;
 	border-width: 1px;
 /*	flex: 1;*/
@@ -19,28 +19,28 @@ table {
 
 thead {
 	text-align: center;
-	background-color: #333;
+	background-color: var(--primary-color);
 } 
 
 tbody > tr > td {
 	text-align: center;
 	border-right-style: outset;
-	border-right-color: #eeeeee;
+	border-right-color: var(--secondary-color);
 	border-right-width: 1px;
 }
 tbody > tr > td:last-child{border: 0;}
 
 .button {
-	color: #eeeeee;
-	background-color: #333;
-	border-color: #eeeeee;
+	color: var(--secondary-color);
+	background-color: var(--primary-color);
+	border-color: var(--secondary-color);
 	border-width: 1px;
 	width: 100%;
 }
 
 .input-text {
-	color: #eeeeee;
-	background-color: #333;
-	border-color: #eeeeee;
+	color: var(--secondary-color);
+	background-color: var(--primary-color);
+	border-color: var(--secondary-color);
 	border-width: 1px;
 }

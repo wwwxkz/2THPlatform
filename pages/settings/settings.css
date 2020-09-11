@@ -1,5 +1,5 @@
 body {
-	background-color: #292929;
+	background-color: var(--background-color);
 }
 
 .container {
@@ -10,9 +10,9 @@ body {
 }
 
 .container > form > input {
-	color: #eeeeee;
-	background-color: #333;
-	border-color: #eeeeee;
+	color: var(--secondary-color);
+	background-color: var(--primary-color);
+	border-color: var(--secondary-color);
 	border-width: 1px;
 /*	width: 100%;*/
 }
