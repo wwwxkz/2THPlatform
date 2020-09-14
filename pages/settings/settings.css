@@ -2,6 +2,12 @@ body {
 	background-color: var(--background-color);
 }
 
+.sidebar-container {
+	display: flex;
+	flex-direction: row;
+	background-color: blue;
+}
+
 .container {
 	display: flex;
 	align-content: center;
@@ -9,11 +15,26 @@ body {
 	justify-content: center;
 }
 
-.container > form > input {
-	color: var(--secondary-color);
-	background-color: var(--primary-color);
-	border-color: var(--secondary-color);
-	border-width: 1px;
-/*	width: 100%;*/
+.sidebar {
+	background-color: green;
 }
 
+.sidebar > form {
+	display: flex;
+	flex-direction: column;
+	background-color: yellow;
+	padding-right: 25px;
+}
+
+.sidebar > form > input {
+	margin-top: 25px;
+	padding: 15px;
+	padding-right: 100px;
+}
+
+input {
+	color: var(--secondary-color);
+	background-color: var(--primary-color);
+/*	border-color: var(--secondary-color);*/
+	border-width: 1px;
+}
