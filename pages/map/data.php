@@ -9,7 +9,7 @@ function parseToXML($htmlStr)
     return $xmlStr;
 }
 
-$url = "http://localhost/2THPlatform/api/v1/report/get/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'];
+$url = "http://localhost/2THPlatform/api/v1/report/get/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&name=" . $_COOKIE['user'];
 $reports = json_decode(file_get_contents($url), true);
 
 header("Content-type: text/xml");
