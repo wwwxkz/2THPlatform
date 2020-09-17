@@ -3,8 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<?php
-		$theme = json_decode(file_get_contents("../../../../secure/companies.txt"), true);
-		echo "<link rel=\"stylesheet\" href=\"../" . $theme['companies'][$_COOKIE['company']]['theme'] . ".css\">";
+		echo "<link rel=\"stylesheet\" href=\"../" . $_COOKIE['theme'] . ".css\">";
 	?>
 	<link rel="stylesheet" href="../index/index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">

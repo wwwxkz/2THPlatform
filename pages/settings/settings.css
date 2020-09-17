@@ -5,7 +5,7 @@ body {
 .sidebar-container {
 	display: flex;
 	flex-direction: row;
-	background-color: blue;
+	background-color: var(--background-color);
 }
 
 .container {
@@ -15,14 +15,10 @@ body {
 	justify-content: center;
 }
 
-.sidebar {
-	background-color: green;
-}
-
 .sidebar > form {
 	display: flex;
 	flex-direction: column;
-	background-color: yellow;
+	background-color: var(--secondary-color);
 	padding-right: 25px;
 }
 
