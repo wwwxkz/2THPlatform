@@ -13,9 +13,9 @@
 	}
   if(array_key_exists('update' ,$_POST)){
     foreach($_POST as $index => $string){
-        $_POST[$index] = str_replace(' ', '+', $string);
+      $_POST[$index] = str_replace(' ', '+', $string);
     }
-    $url = "http://localhost/2THPlatform/api/v1/user/update/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&name=" . $_COOKIE['user'];
+    $url = "http://localhost/2THPlatform/api/v1/user/update/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'];
     if(array_key_exists('password', $_POST)){
       $url .= "&new-password=" . $_POST['password']; 
     }

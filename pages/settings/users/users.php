@@ -13,7 +13,7 @@
 	<tbody>
 		<?php
 			$html = "";
-			$url = "http://localhost/2THPlatform/api/v1/user/get/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&name=" . $_COOKIE['user'];
+			$url = "http://localhost/2THPlatform/api/v1/user/get/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'];
 			$reports = json_decode(file_get_contents($url), true);
 			foreach($reports['data'] as $index => $report){
 				$html .= 
@@ -23,7 +23,7 @@
 						<input type=\"hidden\" name=\"id\" value=\"" .  $report['id'] . "\"/>
 						<input type=\"hidden\" name=\"index\" value=\"" .  $index . "\"/>
 						<td>" . $report['id'] . "</td>
-						<td>" . $report['name'] . "</td>
+						<td>" . $report['user'] . "</td>
 						<td>" . $report['theme'] . "</td>
 						<td>" . $report['type'] . "</td>
 						<td style=\"margin: 0; padding: 0;\">

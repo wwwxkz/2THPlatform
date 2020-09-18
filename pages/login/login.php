@@ -12,15 +12,20 @@
 <?php
 	include_once '../../scripts/redirect.php';
 	if(array_key_exists('signin' ,$_POST)){
-		$url = "http://localhost/2THPlatform/api/v1/user/login/?company=" . $_POST['company'] . "&password=" . $_POST['password'] . "&name=" . $_POST['user'];
+		$url = "http://localhost/2THPlatform/api/v1/user/login/?company=" . $_POST['company'] . "&password=" . $_POST['password'] . "&user=" . $_POST['user'];
 		$return = json_decode(file_get_contents($url), true);
-		if($return['data'] == 'admin' or $return['data'] == 'connector'){
-			setcookie('company', $_POST['company'], time()+3600, '/');
-			setcookie('password', $_POST['password'], time()+3600, '/');
-			setcookie('user', $_POST['user'], time()+3600, '/');
-			redirect("../index/index");
-		} else {
-			echo $return['data'];
+		if($return){
+			if($return['data']['type'] == 'admin' or $return['data']['type'] == 'connector'){
+				setcookie('company', $_POST['company'], time()+3600, '/');
+				setcookie('password', $_POST['password'], time()+3600, '/');
+				setcookie('user', $_POST['user'], time()+3600, '/');
+				setcookie('id', $return['data']['id'], time()+3600, '/');
+				setcookie('type', $return['data']['type'], time()+3600, '/');
+				setcookie('theme', $return['data']['theme'], time()+3600, '/');
+				redirect("../index/index");
+			} else {
+				//Error
+			}
 		}
 	}
 ?>

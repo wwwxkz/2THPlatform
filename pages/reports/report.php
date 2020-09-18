@@ -5,7 +5,7 @@
 <?php
     $data = $_GET;
 
-    $url = "http://localhost/2THPlatform/api/v1/report/get/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&name=" . $_COOKIE['user'];
+    $url = "http://localhost/2THPlatform/api/v1/report/get/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'];
     $reports = json_decode(file_get_contents($url), true);
 
     $html = "
@@ -71,12 +71,13 @@
     echo $html;
 
     if(array_key_exists('save' ,$_POST)){
+        // Remove spaces from the string
         foreach($_POST as $index => $string){
             $_POST[$index] = str_replace(' ', '+', $string);
         }
 
-        $url = "http://localhost/2THPlatform/api/v1/report/update/?id=" . ($data['id'] + 1) . "&name=" . $_POST['name'] . "&tag=" . $_POST['tag'] . "&groups=" . $_POST['groups'] . "&company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&name=" . $_COOKIE['user'];
-            
+        $url = "http://localhost/2THPlatform/api/v1/report/update/?id=" . ($data['id'] + 1) . "&name=" . $_POST['name'] . "&tag=" . $_POST['tag'] . "&groups=" . $_POST['groups'] . "&company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'];
+
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, 1);

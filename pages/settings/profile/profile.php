@@ -13,8 +13,9 @@
 		// Verify if password input isnt blank or null
 		if(!$_POST['password'] == "" and !$_POST['password'] == null){
 			// Send current user data and new password to API
-			$url = "http://localhost/2THPlatform/api/v1/user/update/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&name=" . $_COOKIE['user'] . "&new-password=" . $_POST['password'] . "&action=" . $_COOKIE['user'];
+			$url = "http://localhost/2THPlatform/api/v1/user/update/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'] . "&new-password=" . $_POST['password'] . "&id=" . $_COOKIE['id'];
 			$return = json_decode(file_get_contents($url), true);
+			echo $url;
 			// Remove any cookie with obsolete data
 			$_SERVER['HTTP_COOKIE'];
 			if (isset($_SERVER['HTTP_COOKIE'])) {
@@ -30,7 +31,7 @@
 		}
 	} 
 	elseif(array_key_exists('save-theme' ,$_POST)){
-		$url = "http://localhost/2THPlatform/api/v1/user/update/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&name=" . $_COOKIE['user'] . "&new-theme=" . $_POST['theme'] . "&action=" . $_COOKIE['user'];
+		$url = "http://localhost/2THPlatform/api/v1/user/update/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'] . "&new-theme=" . $_POST['theme'] . "&id=" . $_COOKIE['id'];
 		$return = json_decode(file_get_contents($url), true);
 		setcookie('theme', '', time()-3600, '/');
 		setcookie('theme', $_POST['theme'], time()+3600, '/');

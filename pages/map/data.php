@@ -9,7 +9,7 @@ function parseToXML($htmlStr)
     return $xmlStr;
 }
 
-$url = "http://localhost/2THPlatform/api/v1/report/get/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&name=" . $_COOKIE['user'];
+$url = "http://localhost/2THPlatform/api/v1/report/get/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'];
 $reports = json_decode(file_get_contents($url), true);
 
 header("Content-type: text/xml");
@@ -21,7 +21,7 @@ $ind=0;
 foreach($reports['data'] as $index => $report){
   echo '<marker ';
   echo 'id="' . $report['id'] . '" ';
-  echo 'name="' . parseToXML($report['name']) . '" ';
+  echo 'name="' . parseToXML($report['user']) . '" ';
   echo 'lat="' . $report['lat'] . '" ';
   echo 'lng="' . $report['lon'] . '" ';
   echo '/>';

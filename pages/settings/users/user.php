@@ -5,7 +5,7 @@
     $index = $_POST['index'];
     $id = $_POST['id'];
     // Get all users list and filter with id
-    $url = "http://localhost/2THPlatform/api/v1/user/get/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&name=" . $_COOKIE['user'];
+    $url = "http://localhost/2THPlatform/api/v1/user/get/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'];
     $reports = json_decode(file_get_contents($url), true);
     $user = $reports['data'][$index];
     $html = "
@@ -26,7 +26,7 @@
                     </tr>
                     <tr>
                         <td>Name</td>
-                        <td>" . $user['name'] . "</td>
+                        <td>" . $user['user'] . "</td>
                     </tr>
                     <tr>
                         <td>Theme</td>
