@@ -38,7 +38,6 @@
               parseFloat(markerElem.getAttribute('lng')));
 
           var infowincontent = document.createElement('div');
-          // #####
           var button_delete = document.createElement('button')
           button_delete.innerHTML = 'Delete';
           button_delete.onclick = function()
@@ -68,12 +67,10 @@
           button_edit.innerHTML = 'Edit';
           button_edit.onclick = function()
           {
-              alert("hello, world");
+            location.href = '../reports/report.php?id='+markerElem.getAttribute('id');
           }
-
           var strong = document.createElement('strong');
           strong.textContent = name
-          // ##############
           infowincontent.appendChild(button_delete);
           infowincontent.appendChild(button_edit);
 
