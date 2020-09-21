@@ -33,6 +33,10 @@
                     <td>Longititude</td>
                     <td>" . $reports['data'][$data['id']]['lon'] . "</td>
                 </tr>
+                <tr>
+                    <td>Date</td>
+                    <td>" . $reports['data'][$data['id']]['date'] . "</td>
+                </tr>
             </tbody>
         </table>
         <table>
