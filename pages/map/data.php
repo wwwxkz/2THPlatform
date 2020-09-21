@@ -21,7 +21,7 @@ $ind=0;
 foreach($reports['data'] as $index => $report){
   echo '<marker ';
   echo 'id="' . $report['id'] . '" ';
-  echo 'name="' . parseToXML($report['user']) . '" ';
+  echo 'name="' . parseToXML($report['name']) . '" ';
   echo 'lat="' . $report['lat'] . '" ';
   echo 'lng="' . $report['lon'] . '" ';
   echo '/>';
@@ -29,7 +29,4 @@ foreach($reports['data'] as $index => $report){
 }
 
 echo '</markers>';
-
-
-
 ?>

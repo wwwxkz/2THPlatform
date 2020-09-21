@@ -38,8 +38,45 @@
               parseFloat(markerElem.getAttribute('lng')));
 
           var infowincontent = document.createElement('div');
+          // #####
+          var button_delete = document.createElement('button')
+          button_delete.innerHTML = 'Delete';
+          button_delete.onclick = function()
+          {
+            function getCookie(cname) {
+              var name = cname + "=";
+              var decodedCookie = decodeURIComponent(document.cookie);
+              var ca = decodedCookie.split(';');
+              for(var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                  c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                  return c.substring(name.length, c.length);
+                }
+              }
+              return "";
+            }
+            var url = "http://localhost/2THPlatform/api/v1/report/delete/?id="+markerElem.getAttribute('id')+"&company="+getCookie('company')+"&password="+getCookie('password')+"&user="+getCookie('user');
+            downloadUrl(url, function(data) {
+              alert("Deleted");
+              window.location.reload(); 
+            })
+          }
+          var button_edit = document.createElement('button')
+          button_edit.innerHTML = 'Edit';
+          button_edit.onclick = function()
+          {
+              alert("hello, world");
+          }
+
           var strong = document.createElement('strong');
           strong.textContent = name
+          // ##############
+          infowincontent.appendChild(button_delete);
+          infowincontent.appendChild(button_edit);
+
           infowincontent.appendChild(strong);
           infowincontent.appendChild(document.createElement('br'));
 
