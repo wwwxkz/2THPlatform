@@ -35,5 +35,6 @@
 		$return = json_decode(file_get_contents($url), true);
 		setcookie('theme', '', time()-3600, '/');
 		setcookie('theme', $_POST['theme'], time()+3600, '/');
+		redirect("settings");
 	}
 ?>

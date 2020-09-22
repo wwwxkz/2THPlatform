@@ -19,13 +19,17 @@
     if(array_key_exists('password', $_POST)){
       $url .= "&new-password=" . $_POST['password']; 
     }
-    $url .= "&id=" . $_POST['id'] . "&index=" . $_POST['index'];      
+    $url .= "&id=" . $_POST['id'];      
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_POST, 1);
     $result = curl_exec($ch);
     curl_close($ch);
-    $setting = 'users/users.php';
+    if($_POST['user'] == $_COOKIE['user']) {
+      redirect('../login/login');
+    } else {
+      $setting = 'users/users.php';
+    }
   }
   elseif(array_key_exists('cancel' ,$_POST)){
     $setting = 'users/users.php';

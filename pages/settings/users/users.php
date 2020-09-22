@@ -21,7 +21,6 @@
 				<tr>
 					<form method=\"post\">
 						<input type=\"hidden\" name=\"id\" value=\"" .  $report['id'] . "\"/>
-						<input type=\"hidden\" name=\"index\" value=\"" .  $index . "\"/>
 						<td>" . $report['id'] . "</td>
 						<td>" . $report['user'] . "</td>
 						<td>" . $report['theme'] . "</td>

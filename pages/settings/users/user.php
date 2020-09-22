@@ -1,13 +1,12 @@
 <link rel="stylesheet" href="users/user.css">
 
 <?php
-    // Get user id and index to use in sql query
-    $index = $_POST['index'];
+    // Get user id to use in sql query
     $id = $_POST['id'];
     // Get all users list and filter with id
-    $url = "http://localhost/2THPlatform/api/v1/user/get/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'];
+    $url = "http://localhost/2THPlatform/api/v1/user/get/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'] . "&id=" . $id;
     $reports = json_decode(file_get_contents($url), true);
-    $user = $reports['data'][$index];
+    $user = $reports['data'][0];
     $html = "
     <div class=\"container\">
         <table>
@@ -19,7 +18,7 @@
             <tbody>
                 <form method=\"post\">
                     <input type=\"hidden\" name=\"id\" value=\"" .  $id . "\"/>
-                    <input type=\"hidden\" name=\"index\" value=\"" .  $index . "\"/>
+                    <input type=\"hidden\" name=\"user\" value=\"" .  $user['user'] . "\"/>
                     <tr>
                         <td>ID</td>
                         <td>" . $id . "</td>

@@ -15,6 +15,7 @@
 		$url = "http://localhost/2THPlatform/api/v1/user/login/?company=" . $_POST['company'] . "&password=" . $_POST['password'] . "&user=" . $_POST['user'];
 		$return = json_decode(file_get_contents($url), true);
 		if($return){
+			print_r($return);
 			if($return['data']['type'] == 'admin' or $return['data']['type'] == 'connector'){
 				setcookie('company', $_POST['company'], time()+3600, '/');
 				setcookie('password', $_POST['password'], time()+3600, '/');

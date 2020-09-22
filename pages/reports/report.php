@@ -4,10 +4,8 @@
 
 <?php
     $data = $_GET;
-
-    $url = "http://localhost/2THPlatform/api/v1/report/get/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'];
+    $url = "http://localhost/2THPlatform/api/v1/report/get/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'] . "&id=" . $data['id'];
     $reports = json_decode(file_get_contents($url), true);
-
     $html = "
     <div class=\"container\">
         <table>
@@ -23,19 +21,19 @@
                 </tr>
                 <tr>
                     <td>Mac</td>
-                    <td>" . $reports['data'][$data['id']]['mac'] . "</td>
+                    <td>" . $reports['data'][0]['mac'] . "</td>
                 </tr>
                 <tr>
                     <td>Latitude</td>
-                    <td>" . $reports['data'][$data['id']]['lat'] . "</td>
+                    <td>" . $reports['data'][0]['lat'] . "</td>
                 </tr>
                 <tr>
                     <td>Longititude</td>
-                    <td>" . $reports['data'][$data['id']]['lon'] . "</td>
+                    <td>" . $reports['data'][0]['lon'] . "</td>
                 </tr>
                 <tr>
                     <td>Date</td>
-                    <td>" . $reports['data'][$data['id']]['date'] . "</td>
+                    <td>" . $reports['data'][0]['date'] . "</td>
                 </tr>
             </tbody>
         </table>
@@ -50,15 +48,15 @@
                 <form method=\"post\">
                     <tr>
                         <td>Name</td>
-                        <td><div><input class=\"input-text\" type=\"text\" name=\"name\" value=\"" . $reports['data'][$data['id']]['name'] . "\"></div></td>
+                        <td><div><input class=\"input-text\" type=\"text\" name=\"name\" value=\"" . $reports['data'][0]['name'] . "\"></div></td>
                     </tr>
                     <tr>
                         <td>Tag</td>
-                        <td><div><input class=\"input-text\" type=\"text\" name=\"tag\" value=\"" . $reports['data'][$data['id']]['tag'] ."\"></div></td>
+                        <td><div><input class=\"input-text\" type=\"text\" name=\"tag\" value=\"" . $reports['data'][0]['tag'] ."\"></div></td>
                     </tr>
                     <tr>
                         <td>Groups</td>
-                        <td><div><input class=\"input-text\" type=\"text\" name=\"groups\" value=\"" . $reports['data'][$data['id']]['groups'] . "\"></div></td>
+                        <td><div><input class=\"input-text\" type=\"text\" name=\"groups\" value=\"" . $reports['data'][0]['groups'] . "\"></div></td>
                     </tr>
                     <tr>
                         <form method=\"post\">
@@ -80,7 +78,7 @@
             $_POST[$index] = str_replace(' ', '+', $string);
         }
 
-        $url = "http://localhost/2THPlatform/api/v1/report/update/?id=" . ($data['id'] + 1) . "&name=" . $_POST['name'] . "&tag=" . $_POST['tag'] . "&groups=" . $_POST['groups'] . "&company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'];
+        $url = "http://localhost/2THPlatform/api/v1/report/update/?id=" . $data['id'] . "&name=" . $_POST['name'] . "&tag=" . $_POST['tag'] . "&groups=" . $_POST['groups'] . "&company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'];
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);

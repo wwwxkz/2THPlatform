@@ -36,11 +36,11 @@
 								<td>" . $report['date'] . "</td>
 								<td>" . $report['mac'] . "</td>
 								<td style=\"margin: 0; padding: 0;\">
-									<input type=\"submit\" name=\"edit\" value=\"Edit " . $index . "\"/>
+									<input type=\"submit\" name=\"edit\" value=\"Edit\"/>
 								</td>
 								<td style=\"margin: 0; padding: 0;\">
 								 	<input type=\"hidden\" name=\"id\" value=\"" . $report['id'] . "\">
-									<input type=\"submit\" name=\"delete\" value=\"Delete " . $index . "\"/>
+									<input type=\"submit\" name=\"delete\" value=\"Delete\"/>
 								</td>
 							</tr>
 						</form>
@@ -50,8 +50,7 @@
 				echo $html;
 
 				if(array_key_exists('edit' ,$_POST)){
-					$id = explode(" ", $_POST['edit']);
-					echo "<script type=\"text/javascript\">location.href = 'report.php?id=" . ($id[1]+1) . "';</script>";
+					echo "<script type=\"text/javascript\">location.href = 'report.php?id=" . $_POST['id'] . "';</script>";
 				}
 				elseif(array_key_exists('delete' ,$_POST)){
 			        $url = "http://localhost/2THPlatform/api/v1/report/delete/?id=" . $_POST['id'] . "&company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'];
