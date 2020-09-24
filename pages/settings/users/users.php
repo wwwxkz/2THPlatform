@@ -8,6 +8,7 @@
 			<td>Theme</td>
 			<td>Type</td>
 			<td>Edit</td>
+			<td>Delete</td>
 		</tr>
 	</thead>
 	<tbody>
@@ -27,6 +28,9 @@
 						<td>" . $report['type'] . "</td>
 						<td style=\"margin: 0; padding: 0;\">
 							<input type=\"submit\" name=\"edit\" value=\"Edit\"/>
+						</td>
+						<td style=\"margin: 0; padding: 0;\">
+							<input type=\"submit\" name=\"delete\" value=\"Delete\"/>
 						</td>
 					</form>
 				</tr>

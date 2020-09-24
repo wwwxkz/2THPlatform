@@ -11,6 +11,15 @@
 	if(array_key_exists('edit' ,$_POST)){
 		$setting = 'users/user.php';
 	}
+  if(array_key_exists('delete' ,$_POST)){
+    $url = "http://localhost/2THPlatform/api/v1/user/delete/?id=" . $_POST['id'] . "&company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'];
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    $result = curl_exec($ch);
+    curl_close($ch);
+    $setting = 'users/users.php';
+  }
   if(array_key_exists('update' ,$_POST)){
     foreach($_POST as $index => $string){
       $_POST[$index] = str_replace(' ', '+', $string);
