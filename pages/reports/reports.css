@@ -18,7 +18,7 @@ table {
 
 thead {
 	text-align: center;
-	color: var(--secondary-color);
+	color: var(--primary-text-color);
 	background-color: var(--primary-color);
 } 
 
@@ -36,13 +36,18 @@ tbody > tr > td {
 
 tbody > tr > td:first-child {text-align: center;}
 tbody > tr > td{
-	color: var(--secondary-color);
+	color: var(--secondary-text-color);
 }
 
-tbody > tr > td > form > input {
-	color: var(--secondary-color);
-	background-color: var(--primary-color);
+.button {
+	background-color: #1254ce;
+	width: 100%;
+	color: var(--primary-text-color);
 	border-color: var(--secondary-color);
 	border-width: 1px;
-	width: 100%;
+	border-radius: 0;
+}
+
+.alert {
+	background-color: var(--accent-alert-color);
 }

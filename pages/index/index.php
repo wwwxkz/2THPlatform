@@ -7,13 +7,12 @@
 	?>
 	<link rel="stylesheet" href="../index/index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<title>2THPlatform</title>
 </head>
 <body>
 	<div class="topnav" id="myTopnav">
 		<form method="post">
-			<input name="page" type="submit" value="2TH"/>
+			<input name="page" type="button" value="2TH Platform"/>
 			<input name="page" type="submit" value="Reports"/>
 			<input name="page" type="submit" value="Map"/>
 			<input name="page" type="submit" value="Settings"/>
@@ -44,6 +43,5 @@
 
 </body>
 </html>
-
 
 

@@ -8,3 +8,21 @@ body {
 	padding: 10px;
 	justify-content: center;
 }
+
+button {
+	background-color: var(--accent-color);
+	padding: 10px;
+	margin-top: 5px;
+	color: white;
+	border: 0;
+	border-radius: 0;
+}
+
+.alert {
+	background-color: var(--accent-alert-color);
+}
+
+div {
+	display: flex;
+	flex-direction: column;
+}

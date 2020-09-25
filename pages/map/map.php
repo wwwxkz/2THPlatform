@@ -40,6 +40,7 @@
           var infowincontent = document.createElement('div');
           var button_delete = document.createElement('button')
           button_delete.innerHTML = 'Delete';
+          button_delete.classList.add("alert");
           button_delete.onclick = function()
           {
             function getCookie(cname) {
@@ -57,7 +58,7 @@
               }
               return "";
             }
-            var url = "http://localhost/2THPlatform/api/v1/report/delete/?id="+markerElem.getAttribute('id')+"&company="+getCookie('company')+"&password="+getCookie('password')+"&user="+getCookie('user');
+            var url = "http://localhost/api/v1/report/delete/?id="+markerElem.getAttribute('id')+"&company="+getCookie('company')+"&password="+getCookie('password')+"&user="+getCookie('user');
             downloadUrl(url, function(data) {
               alert("Deleted");
               window.location.reload(); 
@@ -71,11 +72,11 @@
           }
           var strong = document.createElement('strong');
           strong.textContent = name
-          infowincontent.appendChild(button_delete);
-          infowincontent.appendChild(button_edit);
-
+          
           infowincontent.appendChild(strong);
           infowincontent.appendChild(document.createElement('br'));
+          infowincontent.appendChild(button_delete);
+          infowincontent.appendChild(button_edit);
 
           var text = document.createElement('text');
           infowincontent.appendChild(text);
@@ -112,7 +113,7 @@
   function doNothing() {}
 </script>
 <?php
-  require_once '../../../../secure/env.php';
+  require_once '../../../secure/env.php';
   echo "<script defer
   src='https://maps.googleapis.com/maps/api/js?key=" . $key_map . "&callback=initMap'>
   </script>";

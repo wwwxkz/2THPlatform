@@ -1,5 +1,12 @@
 :root {
   --background-color: #292929; 
+  --secondary-background-color: #ccc; 
+  --accent-color: #1254ce;
+  --accent-alert-color: #cc4b37;
+  --accent-success-color: #3adb76;
   --primary-color: #333;
   --secondary-color: #eeeeeeee;
+  --primary-text-color: white;
+  --secondary-text-color: white;
+  --input-text-color: black;
 }

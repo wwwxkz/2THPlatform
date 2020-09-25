@@ -1,37 +1,36 @@
+.users {
+	display: flex;
+}
+
 table {
+	flex: 1;
 	border-color: var(--secondary-color);
 	border-style: outset;
 	border-width: 1px;
-	flex: 1;
 }
 
 thead {
 	text-align: center;
-	color: var(--secondary-color);
+	color: var(--primary-text-color);
 	background-color: var(--primary-color);
 } 
-
-thead > tr {
-}
-
-thead > td {
-}
 
 tbody > tr > td {
 	border-right-style: outset;
 	border-right-color: var(--secondary-color);
 	border-right-width: 1px;
+	color: var(--secondary-text-color);
 }
 
-tbody > tr > td:first-child {text-align: center;}
-tbody > tr > td{
-	color: var(--secondary-color);
-}
-
-tbody > tr > td > form > input {
-	color: var(--secondary-color);
-	background-color: var(--primary-color);
+.button {
+	color: var(--primary-text-color);
+	background-color: var(--accent-color);
 	border-color: var(--secondary-color);
 	border-width: 1px;
+	border-radius: 0;
 	width: 100%;
+}
+
+.alert {
+	background-color: var(--accent-alert-color);
 }

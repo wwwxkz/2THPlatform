@@ -4,7 +4,7 @@
 
 <?php
     $data = $_GET;
-    $url = "http://localhost/2THPlatform/api/v1/report/get/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'] . "&id=" . $data['id'];
+    $url = "http://localhost/api/v1/report/get/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'] . "&id=" . $data['id'];
     $reports = json_decode(file_get_contents($url), true);
     $html = "
     <div class=\"container\">
@@ -40,8 +40,8 @@
         <table>
             <thead>
                 <tr>
-                <td>Current</td>
-                <td>New</td>
+                    <td>Current</td>
+                    <td>New</td>
                 </tr>
             </thead>
             <tbody>
@@ -60,8 +60,8 @@
                     </tr>
                     <tr>
                         <form method=\"post\">
-                            <td><input class=\"button\" name=\"cancel\" value=\"Cancelar\" type=\"submit\"/></td>
-                            <td><input class=\"button\" name=\"save\" value=\"Salvar\" type=\"submit\"/></td>
+                            <td><button type=\"submit\" class=\"alert button\" name=\"cancel\" value=\"Cancelar\">Cancel</button></td>
+                            <td><button type=\"submit\" class=\"button\" name=\"save\" value=\"Salvar\">Save</button></td>
                         </form>
                     </tr>
                 </form>
@@ -78,7 +78,7 @@
             $_POST[$index] = str_replace(' ', '+', $string);
         }
 
-        $url = "http://localhost/2THPlatform/api/v1/report/update/?id=" . $data['id'] . "&name=" . $_POST['name'] . "&tag=" . $_POST['tag'] . "&groups=" . $_POST['groups'] . "&company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'];
+        $url = "http://localhost/api/v1/report/update/?id=" . $data['id'] . "&name=" . $_POST['name'] . "&tag=" . $_POST['tag'] . "&groups=" . $_POST['groups'] . "&company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'];
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);

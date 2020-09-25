@@ -3,22 +3,22 @@ body {
 }
 
 .sidebar-container {
+	height: 100vh;
 	display: flex;
 	flex-direction: row;
-	background-color: var(--background-color);
 }
 
 .container {
-	display: flex;
-	align-content: center;
+	flex: 1;
+
 	padding: 10px;
-	justify-content: center;
 }
 
 .sidebar > form {
+	height: 100vh;
 	display: flex;
 	flex-direction: column;
-	background-color: var(--secondary-color);
+/*	background-color: var(--secondary-background-color);*/
 	padding-right: 25px;
 }
 
@@ -28,9 +28,8 @@ body {
 	padding-right: 100px;
 }
 
-input {
-	color: var(--secondary-color);
+.sidebar-button {
+	color: var(--primary-text-color);
 	background-color: var(--primary-color);
-/*	border-color: var(--secondary-color);*/
-	border-width: 1px;
+	border: 0;
 }

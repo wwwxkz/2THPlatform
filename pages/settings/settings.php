@@ -12,7 +12,7 @@
 		$setting = 'users/user.php';
 	}
   if(array_key_exists('delete' ,$_POST)){
-    $url = "http://localhost/2THPlatform/api/v1/user/delete/?id=" . $_POST['id'] . "&company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'];
+    $url = "http://localhost/api/v1/user/delete/?id=" . $_POST['id'] . "&company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'];
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_POST, 1);
@@ -24,7 +24,7 @@
     foreach($_POST as $index => $string){
       $_POST[$index] = str_replace(' ', '+', $string);
     }
-    $url = "http://localhost/2THPlatform/api/v1/user/update/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'];
+    $url = "http://localhost/api/v1/user/update/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'];
     if(array_key_exists('password', $_POST)){
       $url .= "&new-password=" . $_POST['password']; 
     }
@@ -48,8 +48,8 @@
 <div class="sidebar-container">
 	<div class="sidebar">
 		<form method="post">
-			<input name="setting" type="submit" value="Profile"/>
-			<input name="setting" type="submit" value="Users"/>
+			<input class="sidebar-button" name="setting" type="submit" value="Profile"/>
+			<input class="sidebar-button" name="setting" type="submit" value="Users"/>
 		</form>
 	</div>
 	<div class="container">

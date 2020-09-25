@@ -4,11 +4,11 @@
     // Get user id to use in sql query
     $id = $_POST['id'];
     // Get all users list and filter with id
-    $url = "http://localhost/2THPlatform/api/v1/user/get/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'] . "&id=" . $id;
+    $url = "http://localhost/api/v1/user/get/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'] . "&id=" . $id;
     $reports = json_decode(file_get_contents($url), true);
     $user = $reports['data'][0];
     $html = "
-    <div class=\"container\">
+    <div class=\"user\">
         <table>
             <thead>
                 <tr>
@@ -40,7 +40,7 @@
                         <td><div><input class=\"input-text\" type=\"text\" name=\"password\" placeholder=\"New password\"></div></td>
                     </tr>
                     <tr>
-                        <td><input class=\"button\" name=\"cancel\" value=\"Cancel\" type=\"submit\"/></td>
+                        <td><input class=\"alert button\" name=\"cancel\" value=\"Cancel\" type=\"submit\"/></td>
                         <td><input class=\"button\" name=\"update\" value=\"Save\" type=\"submit\"/></td> 
                     </tr>
                 </form>

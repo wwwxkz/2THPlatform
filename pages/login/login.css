@@ -1,35 +1,29 @@
-body {
-/*	color: var(--secondary-color);
-	background-color: var(--background-color);*/
-}
-
 .container {
-	height: 90%;
+	height: 100%;
+	width: 100%;
 	display: flex;
-	padding: 10px;
 	align-content: center;
-	justify-content: space-around;
+	justify-content: center;
 }
 
 form {
-	height: 20%;
 	display: flex;
 	flex-direction: column;
-	align-items: space-around;
-	justify-content: space-around;
+	align-content: center;
+	justify-content: center;
 }
 
-.button {
-/*	color: var(--secondary-color);
-	background-color: var(--primary-color);
-	border-color: var(--secondary-color);*/
-	border-width: 1px;
-	width: 100%;
+input {
+	margin-bottom: 10px;
+	padding: 10px;
+	border-radius: 0;
+	border: 1px solid #ccc;
 }
 
-.input-text {
-/*	color: var(--secondary-color);
-	background-color: var(--primary-color);
-	border-color: var(--secondary-color);*/
-	border-width: 1px;
+button {
+	background-color: #1254ce;
+	padding: 10px;
+	color: white;
+	border: 0;
+	border-radius: 0;
 }
