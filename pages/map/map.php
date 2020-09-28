@@ -70,12 +70,21 @@
           {
             location.href = '../reports/report.php?id='+markerElem.getAttribute('id');
           }
+          var button_history = document.createElement('button')
+          button_history.innerHTML = 'History';
+          button_history.classList.add("info");
+          button_history.onclick = function()
+          {
+            location.href = '../reports/history.php?id='+markerElem.getAttribute('id');
+          }
+
           var strong = document.createElement('strong');
           strong.textContent = name
           
           infowincontent.appendChild(strong);
           infowincontent.appendChild(document.createElement('br'));
           infowincontent.appendChild(button_delete);
+          infowincontent.appendChild(button_history);
           infowincontent.appendChild(button_edit);
 
           var text = document.createElement('text');

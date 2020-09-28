@@ -22,6 +22,11 @@ button {
 	background-color: var(--accent-alert-color);
 }
 
+.info {
+	background-color: var(--accent-info-color);
+}
+
+
 div {
 	display: flex;
 	flex-direction: column;
