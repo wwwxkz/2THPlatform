@@ -19,11 +19,15 @@ echo '<markers>';
 $ind=0;
 
 foreach($reports['data'] as $index => $report){
+  $location = json_decode($report['locations']);
+  end($location);
+  $key = key($location);
+  
   echo '<marker ';
   echo 'id="' . $report['id'] . '" ';
   echo 'name="' . parseToXML($report['name']) . '" ';
-  echo 'lat="' . $report['lat'] . '" ';
-  echo 'lng="' . $report['lon'] . '" ';
+  echo 'lat="' . $location[$key]->lat . '" ';
+  echo 'lng="' . $location[$key]->lon . '" ';
   echo '/>';
   $ind = $ind + 1;
 }

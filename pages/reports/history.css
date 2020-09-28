@@ -34,24 +34,7 @@ tbody > tr > td {
 	border-right-width: 1px;
 }
 
-tbody > tr > td:first-child {text-align: center;}
 tbody > tr > td{
+	text-align: center;
 	color: var(--secondary-text-color);
-}
-
-.button {
-	background-color:  var(--accent-color);
-	width: 100%;
-	color: var(--primary-text-color);
-	border-color: var(--secondary-color);
-	border-width: 1px;
-	border-radius: 0;
-}
-
-.alert {
-	background-color: var(--accent-alert-color);
-}
-
-.info {
-	background-color: var(--accent-info-color);
 }

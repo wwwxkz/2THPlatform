@@ -6,6 +6,9 @@
     $data = $_GET;
     $url = "http://localhost/api/v1/report/get/?company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'] . "&id=" . $data['id'];
     $reports = json_decode(file_get_contents($url), true);
+    $location = json_decode($reports['data'][0]['locations']);
+    end($location);
+    $key = key($location);
     $html = "
     <div class=\"container\">
         <table>
@@ -25,15 +28,15 @@
                 </tr>
                 <tr>
                     <td>Latitude</td>
-                    <td>" . $reports['data'][0]['lat'] . "</td>
+                    <td>" . $location[$key]->lat . "</td>
                 </tr>
                 <tr>
                     <td>Longititude</td>
-                    <td>" . $reports['data'][0]['lon'] . "</td>
+                    <td>" . $location[$key]->lon . "</td>
                 </tr>
                 <tr>
                     <td>Date</td>
-                    <td>" . $reports['data'][0]['date'] . "</td>
+                    <td>" . $location[$key]->date . "</td>
                 </tr>
             </tbody>
         </table>
