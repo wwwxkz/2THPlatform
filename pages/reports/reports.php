@@ -10,8 +10,11 @@
 				<td>Name</td>
 				<td>Latitude</td>
 				<td>Longitude</td>
-				<td>Tag</td>
 				<td>Date</td>
+				<td>Telephone</td>
+				<td>Tag</td>
+				<td>Model</td>
+				<td>Manufacturer</td>
 				<td>MAC</td>
 				<td>History</td>
 				<td>Edit</td>
@@ -37,8 +40,11 @@
 								<td>" . $report['name'] . "</td>
 								<td>" .	$locations[$key]->lat . "</td>
 								<td>" . $locations[$key]->lon . "</td>
-								<td>" . $report['tag'] . "</td>
 								<td>" . $locations[$key]->date . "</td>
+								<td>" . $report['telephone'] . "</td>
+								<td>" . $report['tag'] . "</td>
+								<td>" . $report['model'] . "</td>
+								<td>" . $report['manufacturer'] . "</td>
 								<td>" . $report['mac'] . "</td>
 								<td class=\"td-button\">
 									<button class=\"info button\" type=\"submit\" name=\"history\"/>History</button>

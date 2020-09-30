@@ -23,6 +23,14 @@
                     <td>" . $data['id'] . "</td>
                 </tr>
                 <tr>
+                    <td>Manufacturer</td>
+                    <td>" . $reports['data'][0]['manufacturer'] . "</td>
+                </tr>
+                <tr>
+                    <td>Model</td>
+                    <td>" . $reports['data'][0]['model'] . "</td>
+                </tr>
+                <tr>
                     <td>Mac</td>
                     <td>" . $reports['data'][0]['mac'] . "</td>
                 </tr>
@@ -62,6 +70,10 @@
                         <td><div><input class=\"input-text\" type=\"text\" name=\"groups\" value=\"" . $reports['data'][0]['groups'] . "\"></div></td>
                     </tr>
                     <tr>
+                        <td>Telephone</td>
+                        <td><div><input class=\"input-text\" type=\"text\" name=\"telephone\" value=\"" . $reports['data'][0]['telephone'] . "\"></div></td>
+                    </tr>
+                    <tr>
                         <form method=\"post\">
                             <td><button type=\"submit\" class=\"alert button\" name=\"cancel\" value=\"Cancelar\">Cancel</button></td>
                             <td><button type=\"submit\" class=\"button\" name=\"save\" value=\"Salvar\">Save</button></td>
@@ -81,7 +93,7 @@
             $_POST[$index] = str_replace(' ', '+', $string);
         }
 
-        $url = "http://localhost/api/v1/report/update/?id=" . $data['id'] . "&name=" . $_POST['name'] . "&tag=" . $_POST['tag'] . "&groups=" . $_POST['groups'] . "&company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'];
+        $url = "http://localhost/api/v1/report/update/?id=" . $data['id'] . "&name=" . $_POST['name'] . "&tag=" . $_POST['tag'] . "&groups=" . $_POST['groups']  . "&tel=" . $_POST['telephone'] . "&company=" . $_COOKIE['company'] . "&password=" . $_COOKIE['password'] . "&user=" . $_COOKIE['user'];
 
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
