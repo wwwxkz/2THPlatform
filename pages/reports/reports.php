@@ -15,6 +15,8 @@
 				<td>Tag</td>
 				<td>Model</td>
 				<td>Manufacturer</td>
+				<td>Downloaded</td>
+				<td>Uploaded</td>
 				<td>MAC</td>
 				<td>History</td>
 				<td>Edit</td>
@@ -45,6 +47,8 @@
 								<td>" . $report['tag'] . "</td>
 								<td>" . $report['model'] . "</td>
 								<td>" . $report['manufacturer'] . "</td>
+								<td>" . formatBytes($report['downloaded']) . "</td>
+								<td>" . formatBytes($report['uploaded']) . "</td>
 								<td>" . $report['mac'] . "</td>
 								<td class=\"td-button\">
 									<button class=\"info button\" type=\"submit\" name=\"history\"/>History</button>
@@ -79,6 +83,16 @@
 			        // Return user to the same page to reload records
 			        redirect("reports");
 				}
+
+				function formatBytes($bytes, $precision = 2) { 
+				    $units = array('B', 'KB', 'MB', 'GB', 'TB'); 
+				    $bytes = max($bytes, 0); 
+				    $pow = floor(($bytes ? log($bytes) : 0) / log(1024)); 
+				    $pow = min($pow, count($units) - 1); 
+				    $bytes /= pow(1024, $pow);
+				    return round($bytes, $precision) . ' ' . $units[$pow]; 
+				} 
+
 			?>
 		</tbody>
 	</table>

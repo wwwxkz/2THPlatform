@@ -23,6 +23,14 @@
                     <td>" . $data['id'] . "</td>
                 </tr>
                 <tr>
+                    <td>Downloaded</td>
+                    <td>" . formatBytes($reports['data'][0]['downloaded']) . "</td>
+                </tr>
+                <tr>
+                    <td>Uploaded</td>
+                    <td>" . formatBytes($reports['data'][0]['uploaded']) . "</td>
+                </tr>
+                <tr>
                     <td>Manufacturer</td>
                     <td>" . $reports['data'][0]['manufacturer'] . "</td>
                 </tr>
@@ -83,10 +91,8 @@
             </tbody>
         </table>
     </div>
-    ";
-    
+    ";  
     echo $html;
-
     if(array_key_exists('save' ,$_POST)){
         // Remove spaces from the string
         foreach($_POST as $index => $string){
@@ -106,5 +112,12 @@
     elseif(array_key_exists('cancel' ,$_POST)){
         redirect("reports");
     }
-
+    function formatBytes($bytes, $precision = 2) { 
+        $units = array('B', 'KB', 'MB', 'GB', 'TB'); 
+        $bytes = max($bytes, 0); 
+        $pow = floor(($bytes ? log($bytes) : 0) / log(1024)); 
+        $pow = min($pow, count($units) - 1); 
+        $bytes /= pow(1024, $pow);
+        return round($bytes, $precision) . ' ' . $units[$pow]; 
+    }
 ?>
