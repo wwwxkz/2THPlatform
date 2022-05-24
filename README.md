@@ -6,7 +6,7 @@
 chmod +x install.sh
 ./install -i -c -a
 ```
-- For help in you can use
+- For help you can use
 ```
 ./install -h
 ```
