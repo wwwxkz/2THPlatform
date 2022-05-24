@@ -1,12 +1,10 @@
 # Install
 
-#### Download 
-
+### Download 
 - 2THPlatform https://github.com/wwwxkz/2THPlatform/
-- 2THApi https://github.com/wwwxkz/2THapi
+- 2THApi https://github.com/wwwxkz/2THApi
 
 ### Extract
-
 - 2THApi and create a folder called api/ in your host directory
 
 ```
@@ -22,7 +20,6 @@
 ```
 
 ### Database
-
 - In order to setup, you need to set these tables, and users. You can change the password or better, create a new user to any task, and even create new taks and read just users, or read just reports, it is up to you and recommended for security reassons
 
 - Database -> company 
@@ -50,7 +47,6 @@ password - varchar(64)
 ```
 
 ### Database users 
-
 - User -> login
 ```
 - Password -> 123
@@ -148,3 +144,8 @@ $key_map = 'google_maps_api_key';
 ```
 http://localhost/2THPlatform
 ```
+
+# Connector 
+
+### Download 
+- 2THConnector https://github.com/wwwxkz/2THConnector
