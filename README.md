@@ -1,6 +1,6 @@
 # Install
 
-### Automatic
+### Automatic 
 - Use install.sh
 ```
 chmod +x install.sh
@@ -10,6 +10,7 @@ chmod +x install.sh
 ```
 ./install -h
 ```
+(Server config has to be made manually)
 
 ### Manual
 Download 
