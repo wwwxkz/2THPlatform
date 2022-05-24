@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Get input when parameters is invoke
+# Get parameters when script is invoke
 while [[ "$#" -gt 0 ]]; do
     case $1 in
         -d|--dir) dir="$2"; shift ;;
@@ -51,9 +51,9 @@ if ! command -v git &> /dev/null
 then
 	echo -e '\n-> Git is not installed';
 else
-	# User has git, now check which function to execute
-	# Check the start of the code for reference
+	# Now check which function to execute
 	case $option in
+		# Use dir specified
 		1) _install $dir;;
 		2) _uninstall;;
 		3) _uninstall; _install;;
