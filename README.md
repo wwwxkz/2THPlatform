@@ -1,10 +1,22 @@
 # Install
 
-### Download 
+### Automatic
+- Use install.sh
+```
+chmod +x install.sh
+./install -i
+```
+- For help in you can use
+```
+./install -h
+```
+
+### Manual
+Download 
 - 2THPlatform https://github.com/wwwxkz/2THPlatform/
 - 2THApi https://github.com/wwwxkz/2THApi
 
-### Extract
+Extract
 - 2THApi and create a folder called api/ in your host directory
 
 ```
@@ -19,7 +31,7 @@
    - scripts
 ```
 
-### Database
+Database
 - In order to setup, you need to set these tables, and users. You can change the password or better, create a new user to any task, and even create new taks and read just users, or read just reports, it is up to you and recommended for security reassons
 
 - Database -> company 
@@ -46,7 +58,7 @@ type - varchar(8)
 password - varchar(64)
 ```
 
-### Database users 
+Database users 
 - User -> login
 ```
 - Password -> 123
@@ -78,14 +90,14 @@ password - varchar(64)
 
 # API
 
-### Classes
+Classes
 ```
 http://localhost/2THPlatform/api/v1/platform/
 http://localhost/2THPlatform/api/v1/report/
 http://localhost/2THPlatform/api/v1/user/
 ```
 
-### Methods
+Methods
 ```
 http://localhost/2THPlatform/api/v1/report/send/
 http://localhost/2THPlatform/api/v1/report/get/
@@ -96,7 +108,7 @@ http://localhost/2THPlatform/api/v1/user/delete/
 http://localhost/2THPlatform/api/v1/user/update/
 ```
 
-### Sending data to API 
+Sending data to API 
 - Location
   - MAC:1116144D4DFB
   - LAT:-21.0059731
@@ -132,7 +144,7 @@ http://localhost/2THPlatform/api/v1/user/update/?company=2TH&name=pedro&password
 
 # Server config
 
-### .env
+.env
 - Get an api key https://developers.google.com/maps/documentation/javascript/get-api-key
 - Setup inside 2THPlatform root folder
 ```
@@ -147,5 +159,5 @@ http://localhost/2THPlatform
 
 # Connector 
 
-### Download 
+Download 
 - 2THConnector https://github.com/wwwxkz/2THConnector
