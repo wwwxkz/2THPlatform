@@ -53,8 +53,8 @@ function _help {
 	echo -e '\n- ./install.sh -i';
 	echo '- ./install.sh -i -d /var/www/folder/';
 	echo '- ./install.sh -u -d /var/www/folder/';
-	echo -e '\n->Notes:';
-	echo -e '\n- If installed with -d, uninstall using -d';
+	echo -e '\n-> Notes:';
+	echo -e '\n- If installed with -d, uninstall using -d\n';
 }
 
 function _create_db {
