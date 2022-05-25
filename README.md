@@ -14,7 +14,7 @@ For instance
 ```
 Server config has to be made manually
 Database users created by the script have total access to your database, it is highly recommended that you setup users manually 
-Users here have the same name, and password, but more permissions than the ones described below
+Users here have the same name and password, but more permissions than the ones described below
 ```
 
 ### Manual
