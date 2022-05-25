@@ -45,11 +45,16 @@ function _help {
 	echo '- Uninstall: -u or --uninstall';
 	echo '- Reinstall: -r or --reinstall';
 	echo '- Install dir: -d or --dir';
+	echo '- Create: -c or --create';
+	echo '- Perish: -p or --perish';
+	echo '- Add users: -a or --add-users';
+	echo '- Drop users: -s or --drop-users';
 	echo -e '\n-> Usage:';
 	echo -e '\n- ./install.sh -i';
 	echo '- ./install.sh -i -d /var/www/folder/';
+	echo '- ./install.sh -u -d /var/www/folder/';
 	echo -e '\n->Notes:';
-	echo -e '\n- If installed with -d, the remove and uninstall will not properly work';
+	echo -e '\n- If installed with -d, uninstall using -d';
 }
 
 function _create_db {
