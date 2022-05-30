@@ -4,7 +4,7 @@
 Use install.sh
 ```
 chmod +x install.sh
-./install -i
+./install -i .
 ./install -c 
 ./install -a
 ```
