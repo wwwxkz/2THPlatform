@@ -1,0 +1,1 @@
+Go to http://localhost:8000/2THPlatform/ for acessing
